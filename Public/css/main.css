@@ -1,0 +1,246 @@
+/* Reset some default styles */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif;
+  line-height: 1.6;
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5C5696;
+  color: white;
+  padding: 10px;
+}
+
+.text-x1 {
+  font-size: 1.5rem;
+}
+
+.center-section {
+  flex-grow: 1; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#memtype {
+  text-align: center;
+  font-size: 20px;
+  margin-right: 50px;
+}
+
+
+/* Container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Main content styles */
+.login-name {
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  color: #131122;
+  text-shadow: 2px 2px 4px rgba(71, 18, 196, 0.2);
+}
+
+.screen {
+  padding: 20px;
+  background-color: #F4F4F4;
+}
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input,
+select {
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Buttons styles */
+button {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  background-color:#8b82dd ;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.primary-button {
+  background-color:#776BCC;
+}
+
+.secondary-button {
+  background-color: #776BCC;
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th,
+tbody td {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.total-heading {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 8px 0;
+}
+
+.total-label {
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #f0f0f0;
+  padding: 6px 0;
+}
+
+.total-amount{
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #f0f0f0;
+  padding: 6px 0;
+}
+
+/* Pagination styles */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination-button {
+  background-color:#8b82dd;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+#prevPage {
+  margin-left: 200px;
+}
+
+#nextPage {
+  margin-right: 400px; /* Adjust the value as needed */
+}
+
+.pagination-page-number {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+#savePageLimit {
+  margin-right: 400px;
+}
+/* Premium feature styles */
+.premium-feature {
+  margin-top: 30px;
+  display: none; /* Initially hide the premium features */
+}
+
+.premium-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  background-color: #8b82dd;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* POPUP */
+.popup-notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  display: none;
+}
+.popup-notification.show {
+  display: block;
+}
+
+.popup-notification.error {
+  background-color: #f44336;
+}
+
+/* Leaderboard and Downloads table styles */
+#leaderBoardTable table,
+#downloadsTable table {
+  width: 100%;
+}
+
+#leaderBoardTable th,
+#downloadsTable th {
+  font-weight: bold;
+}
+
+/* Leaderboard and Downloads button styles */
+
+#leaderBoardButtonDiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#leaderBoardButtonDiv button {
+  padding: 10px 20px;
+  margin-left: 15px;
+  margin-bottom: 20px;
+  background-color: #8b82dd;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Leaderboard and Downloads table visibility styles */
+#leaderBoardTable:not(.hidden),
+#downloadsTable:not(.hidden) {
+  display: block;
+}

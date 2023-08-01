@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense tracker - Forgot Password</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/style-forgotPass.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="screen">
+            <div class="screen_content">
+                <form id="forgetPasswordForm" class="forgot-password" onsubmit="forgotPass(event)">
+                <div class="forgot_field">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="email" name="email" class="forgot_input" placeholder="Enter your Email..." required>
+                </div>
+
+                <button type="submit" class="button forgot_submit">
+                    <span class="button_text">SEND MAIL</span>
+                    <i class="button__icon fas fa-chevron-right"></i>
+                </button>
+
+                <div class="login-redirect">
+                    <div class="login-path">
+                        <p>BACK TO LOGIN</p>
+                        <a href="login.html" class="login-redirect__path">LOGIN</a>
+                    </div>
+                </div>
+            </form>
+    
+    
+    <div class="screen__background">
+        <span
+          class="screen__background__shape screen__background__shape3"
+        ></span>
+        <span
+          class="screen__background__shape screen__background__shape2"
+        ></span>
+        <span
+          class="screen__background__shape screen__background__shape1"
+        ></span>
+      </div>
+    </div>
+  </div>
+
+    <script src="/js/forgotPass.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+</body>
+</html>

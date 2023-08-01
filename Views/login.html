@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense App - Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    
+    <!-- LOGIN FORM -->
+    <div class="container">
+      <div class="screen">
+        <div class="screen_content">
+
+          <form id="login-form" class="login">
+            <div class="login_field">
+              <i class="fa-solid fa-envelope"></i>
+              <input
+                type="email"
+                id="emailInput"
+                class="login_input"
+                placeholder="Enter Email..."
+                required
+              />
+            </div>
+
+            <div class="login_field">
+              <i class="fa-solid fa-lock"></i>
+              <input
+                type="password"
+                id="passwordInput"
+                class="login_input"
+                placeholder="Enter Password..."
+                required
+              />
+            </div>
+
+            <button type="submit" class="button login_submit">
+              <span class="button_text">LOGIN</span>
+              <i class="button__icon fas fa-chevron-right"></i>
+            </button>
+
+            <div class="redirect-links">
+              <div class="redirect-path">
+                <p>Forgot Password</p>
+                <a href="forgotPass.html" class="redirect-links__path">
+                  <br>
+                  <i class="fa-solid fa-lock-open"></i> RESET PASSWORD
+                </a>
+              </div>
+              <br>
+              <br>
+              <div class="redirect-path1">
+                <p>Don't have an account?</p>
+                <a href="signup.html" class="redirect-links__path">CREATE ACCOUNT</a>
+              </div>
+            </div>
+          </form>
+
+          <div class="social-login">
+            <h3>LOGIN VIA</h3>
+            <div class="social-icons">
+              <a href="#" class="social-login__icon fab fa-instagram"></a>
+              <a href="#" class="social-login__icon fab fa-facebook"></a>
+              <a href="#" class="social-login__icon fab fa-twitter"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="screen__background">
+          <span class="screen__background__shape screen__background__shape3"></span>		
+          <span class="screen__background__shape screen__background__shape2"></span>
+          <span class="screen__background__shape screen__background__shape1"></span>
+        </div>		
+      </div>
+    </div>
+
+     <!-- POPUP NOTIFICATION -->
+     <div id="popupNotification" class="popup-notification hidden">
+      NOTIFICATION MESSAGE
+    </div>
+
+    <script src="/js/login.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+  </body>
+</html>
