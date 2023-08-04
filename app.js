@@ -6,7 +6,7 @@ const fs = require("fs");
 const bodyParser = require("body-parser");
 const sequelize = require("./Util/database");
 const path = require("path");
-const helmet = require("helmet");
+// const helmet = require("helmet");
 const morgan = require("morgan");
 
 //MODELS
@@ -30,20 +30,20 @@ const accessLogStream = fs.createWriteStream(
 );
 
 //CSP
-const csp = {
-  directives: {
-    defaultSrc: ["'self'"],
-    scriptSrc: ["'self'", "https://checkout.razorpay.com", "https://cdnjs.cloudflare.com"],
-    frameSrc: ["'self'", "https://api.razorpay.com"],
-    'script-src-attr': ["'none'", "'unsafe-inline'"],
-  },
-};
+// const csp = {
+//   directives: {
+//     defaultSrc: ["'self'"],
+//     scriptSrc: ["'self'", "https://checkout.razorpay.com", "https://cdnjs.cloudflare.com"],
+//     frameSrc: ["'self'", "https://api.razorpay.com"],
+//     'script-src-attr': ["'none'", "'unsafe-inline'"],
+//   },
+// };
 
 //Middleware
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(helmet.contentSecurityPolicy(csp));
+// app.use(helmet.contentSecurityPolicy(csp));
 app.use(morgan("combined", { stream: accessLogStream }));
 app.use(express.static(path.join(__dirname, "/Public/")));
 app.use(express.static(path.join(__dirname, "/Views/")));
