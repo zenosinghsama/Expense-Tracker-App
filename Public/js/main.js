@@ -157,7 +157,7 @@ async function saveToDb(event) {
   try {
     const token = localStorage.getItem("token");
 
-    const response = await axios.post("/admin/add-expense", obj, {
+    const response = await axios.post("http://54.236.172.137:4000/admin/add-expense", obj, {
       headers: {
         Authorization: token,
       },
@@ -206,7 +206,7 @@ function showLeaderBoard() {
   inputBtnElement.onclick = async () => {
     try {
       const token = localStorage.getItem("token");
-      const leaderBoardData = await axios.get("/premium/showLeaderBoard", {
+      const leaderBoardData = await axios.get("http://54.236.172.137:4000/premium/showLeaderBoard", {
         headers: {
           Authorization: token,
         },
@@ -252,7 +252,7 @@ function showDownloadsHistory() {
   downloadHisBtn.onclick = async () => {
     try {
       const token = localStorage.getItem("token");
-      const prevDownloads = await axios.get("/premium/showPrevDownloads", {
+      const prevDownloads = await axios.get("http://54.236.172.137:4000/premium/showPrevDownloads", {
         headers: {
           Authorization: token,
         },
@@ -319,7 +319,7 @@ async function updateExpense(expenseId) {
   const token = localStorage.getItem("token");
 
   try {
-    const response = await axios.put(`/admin/update-expense/${expenseId}`, obj, {
+    const response = await axios.put(`http://54.236.172.137:4000/admin/update-expense/${expenseId}`, obj, {
       headers: {
         Authorization : token
       }
@@ -347,7 +347,7 @@ async function updateExpense(expenseId) {
   }
 
   try {
-    const result = await axios.get(`/admin/getExpenseById/${expenseId}`, {
+    const result = await axios.get(`http://54.236.172.137:4000/admin/getExpenseById/${expenseId}`, {
       headers: {
         Authorization: token
       }
@@ -384,7 +384,7 @@ async function removeExpense(expenseId) {
 async function deleteExpense(expenseId) {
   try {
     const token = localStorage.getItem("token");
-    await axios.delete(`/admin/delete-expense/${expenseId}`, {
+    await axios.delete(`http://54.236.172.137:4000/admin/delete-expense/${expenseId}`, {
       headers: {
         Authorization: token,
       },
@@ -416,7 +416,7 @@ document.getElementById("buyPremiumBtn").addEventListener("click", async functio
       handler: async function (response) {
         try {
           const res = await axios.post(
-            "/purchase/updateStatus",
+            "http://54.236.172.137:4000/purchase/updateStatus",
             {
               order_id: options.order_id,
               payment_id: response.razorpay_payment_id,
@@ -465,7 +465,7 @@ document.getElementById("buyPremiumBtn").addEventListener("click", async functio
 async function downloadReport() {
   const token = localStorage.getItem("token");
   try {
-    const response = await axios.get("/premium/downloadReport", {
+    const response = await axios.get("http://54.236.172.137:4000/premium/downloadReport", {
       headers: { Authorization: token },
     });
 

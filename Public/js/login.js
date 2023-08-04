@@ -6,7 +6,7 @@ document.getElementById('login-form').addEventListener("submit", async(e) => {
 
   try {
     console.log('Sending Login Request');
-    const response = await axios.post("/user/login", {
+    const response = await axios.post("http://54.236.172.137:4000/user/login", {
       email: email,
       password: password
     })

@@ -8,7 +8,7 @@ async function forgotPass(e){
             return alert('PLEASE ENTER CORRECT EMAIL')
         }
 
-        const result = await axios.post("/password/forgotpassword", {email})
+        const result = await axios.post("http://54.236.172.137:4000/password/forgotpassword", {email})
         console.log("POSTED")
         console.log(result.data)
         document.getElementById('email').value = ""
