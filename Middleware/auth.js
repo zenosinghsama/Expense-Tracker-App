@@ -19,6 +19,6 @@ exports.authenticateToken = (req, res, next) => {
     } 
   catch (err) {
     console.log("catch", err)
-    res.status(401).json({ success: false, message:'authentication failed'})
+    res.status(401).json({ success: false, message:'AUTHENTICATION FAILED'})
   }
 }
