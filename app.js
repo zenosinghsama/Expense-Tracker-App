@@ -45,7 +45,7 @@ const csp = {
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "Public")));
+// app.use(express.static(path.join(__dirname, "Public")));
 app.use(express.static(path.join(__dirname, "/Views/")));
 app.use(helmet.contentSecurityPolicy(csp));
 app.use(morgan("combined", { stream: accessLogStream }));
