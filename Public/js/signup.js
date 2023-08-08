@@ -11,7 +11,7 @@ document.getElementById("signup-form").addEventListener("submit", async(e) => {
   }
 
   try {
-    const response = await axios.post("http://54.236.172.137:4000/user/signup", {
+    const response = await axios.post("http://52.73.169.212:4000/user/signup", {
       name: name,
       email: email,
       password: password
