@@ -61,6 +61,11 @@ app.use(OrderRoutes);
 app.use("/premium", PremiumRoutes);
 app.use("/password", ResetPassRoutes);
 
+app.use((req, res) => {
+  console.log("URL : ", req.url)
+  res.sendFile(path.join(__dirname, `Views/${req.url}`));
+})
+
 //ASSOCIATIONS
 User.hasMany(Expense);
 Expense.belongsTo(User);
