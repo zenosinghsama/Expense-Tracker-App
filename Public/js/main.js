@@ -20,7 +20,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     }
     document.getElementById(
       "loggedName"
-    ).innerHTML = `Welcome<span class=" font-extrabold text-[#002D74]"> ${tokenDecoded.name}</span>`;
+    ).innerHTML = `👋🏼Welcome<span class=" font-extrabold text-[#002D74]"> ${tokenDecoded.name}</span>`;
     const res = await axios.get("/admin/expenses", {
       headers: { Authorization: `${token}` },
     });
@@ -157,7 +157,7 @@ async function saveToDb(event) {
   try {
     const token = localStorage.getItem("token");
 
-    const response = await axios.post("http://52.73.169.212:4000/admin/add-expense", obj, {
+    const response = await axios.post("/admin/add-expense", obj, {
       headers: {
         Authorization: token,
       },
@@ -186,10 +186,18 @@ function parseJwt(token) {
   return JSON.parse(jsonPayload);
 }
 
+var textEle = document.createElement("span");
+textEle.innerText = " PREMIUM  MEMBER ";
+
+var crownIcon = document.createElement("i");
+crownIcon.classList.add("fas", "fa-crown");
+
+crownIcon.appendChild(textEle);
 //PREMIUM USER MESSAGE
 function premiumUserMsg() {
   document.getElementById("buyPremiumBtn").remove();
-  document.getElementById("memtype").innerText = "PREMIUM MEMBER";
+  var memType = document.getElementById("memType");
+  memType.appendChild(crownIcon);
 }
 
 //SHOW LEADER BOARD
@@ -199,38 +207,42 @@ function showLeaderBoard() {
   let inputBtnElement = document.createElement("button");
   inputBtnElement.type = "button";
   inputBtnElement.id = "leaderBtn";
-  inputBtnElement.innerText = "SHOW LEADERBOARD";
+  inputBtnElement.innerText = "Show LeaderBoard";
+  inputBtnElement.className = "primary-button-show";
 
   let leaderBoardTableVisible = false;
 
   inputBtnElement.onclick = async () => {
     try {
       const token = localStorage.getItem("token");
-      const leaderBoardData = await axios.get("http://52.73.169.212:4000/premium/showLeaderBoard", {
+      const leaderBoardData = await axios.get("/premium/showLeaderBoard", {
         headers: {
           Authorization: token,
         },
       });
 
       let leaderBoardElement = document.getElementById("addedLeaderBoardList");
-
+      
       const leaderBoardTable = document.getElementById("leaderBoardTable");
 
       if(!leaderBoardTableVisible) {
         leaderBoardTableVisible = true;
-        leaderBoardTable.classList.remove("hidden");
+        document.getElementById("leaderBoardModal").style.display = "block";
+        // leaderBoardTable.classList.remove("hidden");
         leaderBoardElement.innerHTML = "";
 
-        leaderBoardData.data.forEach((leaderDetails) => {
+        leaderBoardData.data.forEach((leaderDetails, index) => {
           leaderBoardElement.innerHTML += `
           <tr>
-          <td>${leaderDetails.name}</td>
-          <td>${leaderDetails.totalExpenses}</td>
+          <td class="number">${index + 1}</td>
+          <td class="name">${leaderDetails.name}</td>
+          <td class="points">${leaderDetails.totalExpenses}</td>
           </tr>`;
         });
       } else {
         leaderBoardTableVisible = false;
-        leaderBoardTable.classList.add("hidden");
+        document.getElementById("leaderBoardModal").style.display = "none";
+        // leaderBoardTable.classList.add("hidden");
       }
     } catch (err) {
       console.log(err);
@@ -240,19 +252,23 @@ function showLeaderBoard() {
   document.getElementById("leaderBoardButtonDiv").appendChild(inputBtnElement);
 }
 
+document.getElementById("closeModalBtn").onclick = function() {
+  document.getElementById("leaderBoardModal").style.display = "none";
+};
 //SHOW PREVIOUS DOWNLOADS
 function showDownloadsHistory() {
   let downloadHisBtn = document.createElement("button");
   downloadHisBtn.type = "button";
   downloadHisBtn.id = "downloadHisBtn";
-  downloadHisBtn.innerText = "DOWNLOADED REPORTS";
+  downloadHisBtn.innerText = "Downloaded Reports";
+  downloadHisBtn.className = "primary-button-show";
 
   let downloadsView = false;
 
   downloadHisBtn.onclick = async () => {
     try {
       const token = localStorage.getItem("token");
-      const prevDownloads = await axios.get("http://52.73.169.212:4000/premium/showPrevDownloads", {
+      const prevDownloads = await axios.get("/premium/showPrevDownloads", {
         headers: {
           Authorization: token,
         },
@@ -319,7 +335,7 @@ async function updateExpense(expenseId) {
   const token = localStorage.getItem("token");
 
   try {
-    const response = await axios.put(`http://52.73.169.212:4000/admin/update-expense/${expenseId}`, obj, {
+    const response = await axios.put(`/admin/update-expense/${expenseId}`, obj, {
       headers: {
         Authorization : token
       }
@@ -347,7 +363,7 @@ async function updateExpense(expenseId) {
   }
 
   try {
-    const result = await axios.get(`http://52.73.169.212:4000/admin/getExpenseById/${expenseId}`, {
+    const result = await axios.get(`/admin/getExpenseById/${expenseId}`, {
       headers: {
         Authorization: token
       }
@@ -384,7 +400,7 @@ async function removeExpense(expenseId) {
 async function deleteExpense(expenseId) {
   try {
     const token = localStorage.getItem("token");
-    await axios.delete(`http://52.73.169.212:4000/admin/delete-expense/${expenseId}`, {
+    await axios.delete(`/admin/delete-expense/${expenseId}`, {
       headers: {
         Authorization: token,
       },
@@ -416,7 +432,7 @@ document.getElementById("buyPremiumBtn").addEventListener("click", async functio
       handler: async function (response) {
         try {
           const res = await axios.post(
-            "http://52.73.169.212:4000/purchase/updateStatus",
+            "/purchase/updateStatus",
             {
               order_id: options.order_id,
               payment_id: response.razorpay_payment_id,
@@ -465,7 +481,7 @@ document.getElementById("buyPremiumBtn").addEventListener("click", async functio
 async function downloadReport() {
   const token = localStorage.getItem("token");
   try {
-    const response = await axios.get("http://52.73.169.212:4000/premium/downloadReport", {
+    const response = await axios.get("/premium/downloadReport", {
       headers: { Authorization: token },
     });
 
